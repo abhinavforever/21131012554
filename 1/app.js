@@ -16,11 +16,11 @@ const TEST_SERVER_URLS = {
 };
 const fetchNumbers = async (numberid) => {
     try {
-      const authToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiZXhwIjoxNzE3MDYwMjM4LCJpYXQiOjE3MTcwNTk5MzgsImlzcyI6IkFmZm9yZG1lZCIsImp0aSI6IjU2MWJiYjk0LWFkYjEtNGQ4My1hODk4LTg1MjlmYzcwNDY4NSIsInN1YiI6ImFiaGluYXZzcmkyMDRAZ21haWwuY29tIn0sImNvbXBhbnlOYW1lIjoiR2FsZ290aWFzIFVuaXZlcnNpdHkiLCJjbGllbnRJRCI6IjU2MWJiYjk0LWFkYjEtNGQ4My1hODk4LTg1MjlmYzcwNDY4NSIsImNsaWVudFNlY3JldCI6ImFLc3RUSlBxckFpWUZCSlAiLCJvd25lck5hbWUiOiJBYmhpbmF2IFNyaXZhc3RhdmEiLCJvd25lckVtYWlsIjoiYWJoaW5hdnNyaTIwNEBnbWFpbC5jb20iLCJyb2xsTm8iOiIyMTEzMTAxMjU1NCJ9.rK766LepIXh8WS6lCcOg2weKU0AogYWb2RoiGd6-Q7g';
+      const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiZXhwIjoxNzE3MDY0MDQwLCJpYXQiOjE3MTcwNjM3NDAsImlzcyI6IkFmZm9yZG1lZCIsImp0aSI6IjU2MWJiYjk0LWFkYjEtNGQ4My1hODk4LTg1MjlmYzcwNDY4NSIsInN1YiI6ImFiaGluYXZzcmkyMDRAZ21haWwuY29tIn0sImNvbXBhbnlOYW1lIjoiR2FsZ290aWFzIFVuaXZlcnNpdHkiLCJjbGllbnRJRCI6IjU2MWJiYjk0LWFkYjEtNGQ4My1hODk4LTg1MjlmYzcwNDY4NSIsImNsaWVudFNlY3JldCI6ImFLc3RUSlBxckFpWUZCSlAiLCJvd25lck5hbWUiOiJBYmhpbmF2IFNyaXZhc3RhdmEiLCJvd25lckVtYWlsIjoiYWJoaW5hdnNyaTIwNEBnbWFpbC5jb20iLCJyb2xsTm8iOiIyMTEzMTAxMjU1NCJ9.Mooq2xoaCwy8uwNvQb1kmifLQ7VHsPHPBRRfuksnHkM";
   
       const response = await axios.get(TEST_SERVER_URLS[numberid], {
         headers: {
-          'Authorization': authToken
+          'Authorization': `Bearer ${authToken}`
         },
         timeout: 500
       });
@@ -36,9 +36,6 @@ const fetchNumbers = async (numberid) => {
     return [];
   };
   
-  
-  
-
 app.get('/numbers/:numberid', async (req, res) => {
   const { numberid } = req.params;
 
